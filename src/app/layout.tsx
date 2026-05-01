@@ -1,9 +1,19 @@
 import type { Metadata } from 'next';
-import { Inter_Tight, JetBrains_Mono, Share_Tech_Mono } from 'next/font/google';
+import { JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
 
-const cyber = Share_Tech_Mono({ subsets: ['latin'], weight: ['400'], variable: '--font-cyber', display: 'swap' });
-const interTight = Inter_Tight({ subsets: ['latin'], weight: ['400', '500', '600', '700'], variable: '--font-sans', display: 'swap' });
+const nebula = localFont({
+  src: [
+    { path: './fonts/nebula-sans/NebulaSans-Book.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/nebula-sans/NebulaSans-Medium.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/nebula-sans/NebulaSans-Semibold.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/nebula-sans/NebulaSans-Bold.woff2', weight: '700', style: 'normal' },
+    { path: './fonts/nebula-sans/NebulaSans-BookItalic.woff2', weight: '400', style: 'italic' },
+  ],
+  variable: '--font-nebula',
+  display: 'swap',
+});
 const jetbrains = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500', '700'], variable: '--font-mono', display: 'swap' });
 
 export const metadata: Metadata = {
@@ -19,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cyber.variable} ${interTight.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${nebula.variable} ${jetbrains.variable}`}>
       <body>
         <div className="noise" aria-hidden="true" />
         {children}
