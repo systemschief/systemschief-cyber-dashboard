@@ -1,13 +1,11 @@
 import type { Metadata } from 'next';
-import { JetBrains_Mono } from 'next/font/google';
-import localFont from 'next/font/local';
+import { IBM_Plex_Sans, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
-const nebula = localFont({
-  src: [
-    { path: './fonts/nebula/Nebula-Regular.otf', weight: '400', style: 'normal' },
-  ],
-  variable: '--font-nebula',
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-ibm-plex-sans',
   display: 'swap',
 });
 const jetbrains = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500', '700'], variable: '--font-mono', display: 'swap' });
@@ -25,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${nebula.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${ibmPlexSans.variable} ${jetbrains.variable}`}>
       <body>
         <div className="noise" aria-hidden="true" />
         {children}

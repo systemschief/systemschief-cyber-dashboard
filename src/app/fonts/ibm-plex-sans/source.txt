@@ -1,0 +1,4 @@
+IBM Plex Sans from Google Fonts: https://fonts.google.com/specimen/IBM+Plex+Sans
+Google Fonts source: https://github.com/google/fonts/tree/main/ofl/ibmplexsans
+Static TTF files for OpenGraph rendering from IBM Plex source: https://github.com/IBM/plex/tree/master/packages/plex-sans/fonts/complete/ttf
+License: SIL Open Font License 1.1 (see OFL.txt)
