@@ -5,7 +5,7 @@ import './globals.css';
 
 const nebula = localFont({
   src: [
-    { path: './fonts/nebula/Nebula-Regular.ttf', weight: '400', style: 'normal' },
+    { path: './fonts/nebula/Nebula-Regular.otf', weight: '400', style: 'normal' },
   ],
   variable: '--font-nebula',
   display: 'swap',

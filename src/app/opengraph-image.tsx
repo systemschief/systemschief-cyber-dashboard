@@ -5,7 +5,7 @@ export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default async function Image() {
-  const nebula = await fetch(new URL('./fonts/nebula/Nebula-Regular.ttf', import.meta.url)).then((res) => res.arrayBuffer());
+  const nebula = await fetch(new URL('./fonts/nebula/Nebula-Regular.otf', import.meta.url)).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
     <div style={{ width: '100%', height: '100%', background: '#0a0d0f', color: '#e6edf3', display: 'flex', flexDirection: 'column', padding: 64, border: '1px solid rgba(255,255,255,.08)', fontFamily: 'Nebula' }}>
