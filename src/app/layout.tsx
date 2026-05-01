@@ -5,11 +5,7 @@ import './globals.css';
 
 const nebula = localFont({
   src: [
-    { path: './fonts/nebula-sans/NebulaSans-Book.woff2', weight: '400', style: 'normal' },
-    { path: './fonts/nebula-sans/NebulaSans-Medium.woff2', weight: '500', style: 'normal' },
-    { path: './fonts/nebula-sans/NebulaSans-Semibold.woff2', weight: '600', style: 'normal' },
-    { path: './fonts/nebula-sans/NebulaSans-Bold.woff2', weight: '700', style: 'normal' },
-    { path: './fonts/nebula-sans/NebulaSans-BookItalic.woff2', weight: '400', style: 'italic' },
+    { path: './fonts/nebula/Nebula-Regular.ttf', weight: '400', style: 'normal' },
   ],
   variable: '--font-nebula',
   display: 'swap',

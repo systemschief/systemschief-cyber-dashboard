@@ -14,7 +14,7 @@ export function Masthead({ news, kev, cves, ransomware }: { news: NewsResponse |
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_560px]">
         <div>
           <p className="mono mb-3 text-xs uppercase tracking-[.32em] text-[#39ff7a]">Public threat desk / v1</p>
-          <h1 className="display text-6xl italic leading-[.86] tracking-[-.045em] sm:text-8xl lg:text-9xl">The Threat Landscape, In Real Time.</h1>
+          <h1 className="display text-6xl leading-[.92] sm:text-8xl lg:text-9xl">The Threat Landscape, In Real Time.</h1>
           <p className="mt-5 max-w-3xl text-lg leading-7 text-[#8b97a1]">Systems Chief operates this live board as a public front door into managed detection, threat intelligence, and cyber operations discipline.</p>
         </div>
         <div className="grid grid-cols-2 border hairline bg-[#11161a]">

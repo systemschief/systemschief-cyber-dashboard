@@ -23,7 +23,7 @@ body {
   color: var(--text);
   font-family: var(--font-nebula), var(--font-mono), sans-serif;
   font-variant-numeric: tabular-nums;
-  letter-spacing: .015em;
+  letter-spacing: .035em;
 }
 a { color: inherit; text-decoration: none; }
 a:hover { color: var(--phosphor); }
@@ -40,8 +40,9 @@ a:hover { color: var(--phosphor); }
   font-family: var(--font-nebula), var(--font-mono), monospace;
   font-style: normal;
   text-transform: uppercase;
-  letter-spacing: -.018em;
-  text-shadow: 0 0 20px rgba(57,255,122,.08);
+  font-weight: 400;
+  letter-spacing: .018em;
+  text-shadow: 0 0 20px rgba(57,255,122,.16);
 }
 .panel { background: var(--surface); border: 1px solid var(--line); }
 .hairline { border-color: var(--line); }
