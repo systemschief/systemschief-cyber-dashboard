@@ -12,6 +12,7 @@ import { CvesCard } from './CvesCard';
 import { RansomwareCard } from './RansomwareCard';
 import { ThreatMap } from './ThreatMap';
 import { LumuPlaceholder } from './LumuPlaceholder';
+import { PlaybooksCard } from './PlaybooksCard';
 import { Footer } from './Footer';
 
 export default async function Dashboard() {
@@ -41,6 +42,7 @@ export default async function Dashboard() {
           <div className="xl:col-span-3"><ThreatMap byCountry={ransomware.byCountry ?? {}} /></div>
           <div className="xl:col-span-2"><LumuPlaceholder /></div>
         </section>
+        <PlaybooksCard />
         <Footer />
       </div>
     </main>

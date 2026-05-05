@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import type { CvesResponse, KevResponse, NewsResponse, RansomwareResponse } from '@/lib/types';
 import { compactNumber } from '@/lib/format';
 
@@ -13,6 +14,17 @@ export function Masthead({ news, kev, cves, ransomware }: { news: NewsResponse |
     <section className="mb-5 border-b hairline pb-7">
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_560px]">
         <div>
+          {/* Systems Chief Logo */}
+          <div className="mb-5">
+            <Image
+              src="/sc-logo.png"
+              alt="Systems Chief"
+              width={170}
+              height={52}
+              priority
+              style={{ filter: 'brightness(0) invert(1) opacity(0.9)' }}
+            />
+          </div>
           <p className="mono mb-3 text-xs uppercase tracking-[.32em] text-[#39ff7a]">Public threat desk / v1</p>
           <h1 className="display text-6xl leading-[.92] sm:text-8xl lg:text-9xl">The Threat Landscape, In Real Time.</h1>
           <p className="mt-5 max-w-3xl text-lg leading-7 text-[#8b97a1]">Systems Chief operates this live board as a public front door into managed detection, threat intelligence, and cyber operations discipline.</p>

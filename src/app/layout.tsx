@@ -1,14 +1,20 @@
 import type { Metadata } from 'next';
-import { IBM_Plex_Sans, JetBrains_Mono } from 'next/font/google';
+import { IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 
 const ibmPlexSans = IBM_Plex_Sans({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-ibm-plex-sans',
   display: 'swap',
 });
-const jetbrains = JetBrains_Mono({ subsets: ['latin'], weight: ['400', '500', '700'], variable: '--font-mono', display: 'swap' });
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-mono',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://systemschief-cyber.vercel.app'),
@@ -23,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${ibmPlexSans.variable} ${jetbrains.variable}`}>
+    <html lang="en" className={`${ibmPlexSans.variable} ${ibmPlexMono.variable}`}>
       <body>
         <div className="noise" aria-hidden="true" />
         {children}
