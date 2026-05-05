@@ -8,6 +8,8 @@ export interface ApiError {
   source?: string;
 }
 
+export type NewsCategory = 'security' | 'privacy' | 'compliance' | 'advisory';
+
 export interface NewsItem {
   id: string;
   title: string;
@@ -15,6 +17,7 @@ export interface NewsItem {
   url: string;
   publishedAt: string;
   summary: string;
+  category: NewsCategory;
 }
 
 export interface NewsResponse {
@@ -55,6 +58,9 @@ export interface CveItem {
   product: string;
   summary: string;
   publishedAt: string;
+  patchAvailable?: boolean;
+  exploitAvailable?: boolean;
+  ransomwareGroup?: string;
 }
 
 export interface CvesResponse {
@@ -71,6 +77,40 @@ export interface RansomwareVictim {
   sector: string;
   date: string;
   claimUrl: string;
+}
+
+export interface ExploitItem {
+  id: string;
+  title: string;
+  url: string;
+  publishedAt: string;
+  platform: string;
+  type: string;
+  author: string;
+  cveId?: string;
+}
+
+export interface ExploitResponse {
+  items: ExploitItem[];
+  degraded: boolean;
+  fetchedAt: string;
+  error?: ApiError;
+}
+
+export interface CisaAlertItem {
+  id: string;
+  title: string;
+  url: string;
+  publishedAt: string;
+  summary: string;
+  severity?: string;
+}
+
+export interface CisaAlertsResponse {
+  items: CisaAlertItem[];
+  degraded: boolean;
+  fetchedAt: string;
+  error?: ApiError;
 }
 
 export interface RansomwareResponse {
@@ -90,5 +130,5 @@ export interface LumuIncidentPlaceholder {
 export interface StatusResponse {
   status: SystemStatus;
   lastSync: string;
-  feeds: Record<'news' | 'kev' | 'cves' | 'ransomware', FeedState>;
+  feeds: Record<'news' | 'kev' | 'cves' | 'ransomware' | 'exploits' | 'alerts', FeedState>;
 }

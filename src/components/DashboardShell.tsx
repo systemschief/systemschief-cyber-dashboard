@@ -2,14 +2,22 @@
 import { useState } from 'react';
 import { SectionNav, type SectionId } from './SectionNav';
 import { CyberNewsSection } from './CyberNewsSection';
-import { IntelSection } from './IntelSection';
+import { AdvisoriesSection } from './AdvisoriesSection';
 import { PlaybooksCard } from './PlaybooksCard';
 import { SourcesSection } from './SourcesSection';
 import { Masthead } from './Masthead';
 import { LeadStory } from './LeadStory';
 import { NewsGrid } from './NewsGrid';
 import { Footer } from './Footer';
-import type { NewsResponse, KevResponse, CvesResponse, RansomwareResponse, StatusResponse } from '@/lib/types';
+import type {
+  NewsResponse,
+  KevResponse,
+  CvesResponse,
+  RansomwareResponse,
+  StatusResponse,
+  ExploitResponse,
+  CisaAlertsResponse,
+} from '@/lib/types';
 
 export function DashboardShell({
   news,
@@ -17,12 +25,16 @@ export function DashboardShell({
   cves,
   ransomware,
   status,
+  exploits,
+  alerts,
 }: {
   news: NewsResponse;
   kev: KevResponse;
   cves: CvesResponse;
   ransomware: RansomwareResponse;
   status: StatusResponse | null;
+  exploits: ExploitResponse;
+  alerts: CisaAlertsResponse;
 }) {
   const [section, setSection] = useState<SectionId>('home');
   const lead = news.items?.[0];
@@ -44,30 +56,24 @@ export function DashboardShell({
         )}
 
         {section === 'news' && (
-          <CyberNewsSection
-            news={news.items ?? []}
+          <CyberNewsSection news={news.items ?? []} />
+        )}
+
+        {section === 'advisories' && (
+          <AdvisoriesSection
             cves={cves.items ?? []}
             kev={kev.latest ?? []}
+            alerts={alerts.items ?? []}
+            exploits={exploits.items ?? []}
+            ransomware={ransomware.victims ?? []}
           />
         )}
 
-        {section === 'intel' && (
-          <IntelSection
-            cves={cves.items ?? []}
-            kev={kev.latest ?? []}
-            ransomware={{ victims: ransomware.victims ?? [], byCountry: ransomware.byCountry ?? {} }}
-          />
-        )}
-
-        {section === 'playbooks' && (
-          <div>
-            <PlaybooksCard />
-          </div>
-        )}
+        {section === 'playbooks' && <PlaybooksCard />}
 
         {section === 'sources' && (
           <SourcesSection
-            feeds={status?.feeds ?? { news: 'ok', kev: 'ok', cves: 'ok', ransomware: 'ok' }}
+            feeds={status?.feeds ?? { news: 'ok', kev: 'ok', cves: 'ok', ransomware: 'ok', exploits: 'ok', alerts: 'ok' }}
             lastSync={status?.lastSync ?? new Date().toISOString()}
           />
         )}

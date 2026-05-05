@@ -1,6 +1,6 @@
 import type { FeedState, SystemStatus } from '@/lib/types';
 
-type FeedName = 'news' | 'kev' | 'cves' | 'ransomware';
+type FeedName = 'news' | 'kev' | 'cves' | 'ransomware' | 'exploits' | 'alerts';
 type RecordState = { state: FeedState; at: string; error?: string };
 
 const globalStore = globalThis as typeof globalThis & {
@@ -14,6 +14,8 @@ export const feedHealth = globalStore.__systemsChiefFeedHealth ??= {
   kev: { state: 'ok', at: now() },
   cves: { state: 'ok', at: now() },
   ransomware: { state: 'ok', at: now() },
+  exploits: { state: 'ok', at: now() },
+  alerts: { state: 'ok', at: now() },
 };
 
 export function markFeed(name: FeedName, state: FeedState, error?: string) {
@@ -31,6 +33,8 @@ export function getSystemStatus(): { status: SystemStatus; lastSync: string; fee
       kev: feedHealth.kev.state,
       cves: feedHealth.cves.state,
       ransomware: feedHealth.ransomware.state,
+      exploits: feedHealth.exploits.state,
+      alerts: feedHealth.alerts.state,
     },
   };
 }

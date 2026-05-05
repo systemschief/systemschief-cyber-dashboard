@@ -1,21 +1,19 @@
 'use client';
 
-export type SectionId = 'home' | 'news' | 'intel' | 'playbooks' | 'sources';
+export type SectionId = 'home' | 'news' | 'advisories' | 'playbooks' | 'sources';
 
 const SECTIONS: { id: SectionId; glyph: string; label: string; sub: string }[] = [
-  { id: 'home',      glyph: '⬡',  label: 'Overview',    sub: 'Threat Landscape'   },
-  { id: 'news',      glyph: '◈',  label: 'Cyber News',  sub: 'Live Intel Feed'    },
-  { id: 'intel',     glyph: '◎',  label: 'Intel',       sub: 'CVEs · KEV · Ransom'},
-  { id: 'playbooks', glyph: '▣',  label: 'Playbooks',   sub: 'Threat Actor TTPs'  },
-  { id: 'sources',   glyph: '◉',  label: 'Sources',     sub: 'Feed Health'        },
+  { id: 'home',        glyph: '⬡', label: 'Overview',    sub: 'Threat Landscape'     },
+  { id: 'news',        glyph: '◈', label: 'Cyber News',  sub: 'Security · Privacy · Compliance' },
+  { id: 'advisories',  glyph: '◎', label: 'Advisories',  sub: 'CVE · KEV · Alerts · Exploits' },
+  { id: 'playbooks',   glyph: '▣', label: 'Playbooks',   sub: 'Threat Actor TTPs'    },
+  { id: 'sources',     glyph: '◉', label: 'Sources',     sub: 'Feed Health'          },
 ];
 
 export function SectionNav({ active, onChange }: { active: SectionId; onChange: (s: SectionId) => void }) {
   return (
     <nav className="section-nav" aria-label="Dashboard sections">
-      {/* Decorative spine line */}
       <div className="section-nav__spine" aria-hidden="true" />
-
       {SECTIONS.map((s) => {
         const isActive = s.id === active;
         return (
